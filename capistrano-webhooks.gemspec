@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'http://iamdeuterium.ru'
   spec.license       = 'MIT'
 
+  spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   spec.require_paths = ['lib']
 
   spec.add_dependency 'faraday'
