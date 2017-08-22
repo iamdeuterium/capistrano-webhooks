@@ -26,8 +26,8 @@ module Capistrano
         Faraday.new do |faraday|
           faraday.request :multipart
           faraday.request :url_encoded
-          faraday.options.timeout       = 5
-          faraday.options.open_timeout  = 5
+          faraday.options.timeout       = 15
+          faraday.options.open_timeout  = 15
           faraday.adapter Faraday.default_adapter
         end
       end

@@ -30,7 +30,12 @@ namespace :webhooks do
 
             task_name = "webhooks:task_#{webhook_index}"
             Rake::Task.define_task task_name do
-              Capistrano::Webhooks::Client.new(url, opts).run
+              begin
+                Capistrano::Webhooks::Client.new(url, opts).run
+              rescue => e
+                warn "Webhook to '#{url}' failed"
+                warn "Error: #{e.inspect}"
+              end
             end
 
             send hook, webhook, task_name
